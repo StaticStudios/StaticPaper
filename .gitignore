@@ -1,0 +1,22 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+/run
+
+/staticpaper-server/build.gradle.kts
+/staticpaper-server/src/minecraft
+/paper-server
+/aspaper-server
+/staticpaper-api/build.gradle.kts
+/paper-api
+/paper-api-generator
+/aspaper-api
+/staticpaper-asp-api
+/staticpaper-asp-core
+.idea/
+.DS_Store
+/staticpaper-asp-core/build/
+/staticpaper-asp-api/build/
