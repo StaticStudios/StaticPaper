@@ -1,0 +1,71 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: leguan <longboard.noah@gmail.com>
+Date: Sat, 30 Aug 2025 12:17:13 +0200
+Subject: [PATCH] branding
+
+
+diff --git a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
+index ac171c6b9008eaaeb9e433fdb188bd797fd95759..8cb134c75c0043816995bf48f826571c828db01d 100644
+--- a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
++++ b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
+@@ -44,12 +44,12 @@ public class PaperVersionFetcher implements VersionFetcher {
+ 
+     @Override
+     public Component getVersionMessage() {
+-        final Component updateMessage;
++        Component updateMessage = Component.empty();
+         final ServerBuildInfo build = ServerBuildInfo.buildInfo();
+         if (build.buildNumber().isEmpty() && build.gitCommit().isEmpty()) {
+             updateMessage = text("You are running a development version without access to version information", color(0xFF5300));
+         } else {
+-            updateMessage = getUpdateStatusMessage("InfernalSuite/AdvancedSlimePaper", build);
++//            updateMessage = getUpdateStatusMessage("StaticStudios/StaticPaper", build); // StaticPaper - we arent public so we dont need this
+         }
+         final @Nullable Component history = this.getHistory();
+ 
+diff --git a/src/main/java/io/papermc/paper/ServerBuildInfoImpl.java b/src/main/java/io/papermc/paper/ServerBuildInfoImpl.java
+index 2610e8d1ce20331895b0a76fa50efc062001678e..a8b0e0ede1fd418c34e436da29dfd6d62fbf15f5 100644
+--- a/src/main/java/io/papermc/paper/ServerBuildInfoImpl.java
++++ b/src/main/java/io/papermc/paper/ServerBuildInfoImpl.java
+@@ -32,6 +32,7 @@ public record ServerBuildInfoImpl(
+ 
+     private static final String BRAND_PAPER_NAME = "Paper";
+     private static final String BRAND_ADVANCED_SLIME_PAPER_NAME = "AdvancedSlimePaper";
++    private static final String BRAND_STATIC_PAPER_NAME = "StaticPaper"; // StaticPaper - branding
+ 
+     private static final String BUILD_DEV = "DEV";
+ 
+@@ -43,9 +44,9 @@ public record ServerBuildInfoImpl(
+         this(
+             getManifestAttribute(manifest, ATTRIBUTE_BRAND_ID)
+                 .map(Key::key)
+-                .orElse(BRAND_ADVANCED_SLIME_PAPER_ID),
++                .orElse(BRAND_STATIC_PAPER_ID), // StaticPaper - branding
+             getManifestAttribute(manifest, ATTRIBUTE_BRAND_NAME)
+-                .orElse(BRAND_ADVANCED_SLIME_PAPER_NAME),
++                .orElse(BRAND_STATIC_PAPER_NAME), // StaticPaper - branding
+             SharedConstants.getCurrentVersion().id(),
+             SharedConstants.getCurrentVersion().name(),
+             getManifestAttribute(manifest, ATTRIBUTE_BUILD_NUMBER)
+@@ -62,7 +63,7 @@ public record ServerBuildInfoImpl(
+ 
+     @Override
+     public boolean isBrandCompatible(final @NotNull Key brandId) {
+-        return brandId.equals(this.brandId) || brandId.equals(BRAND_PAPER_ID) || brandId.equals(BRAND_ADVANCED_SLIME_PAPER_ID);
++        return brandId.equals(this.brandId) || brandId.equals(BRAND_PAPER_ID) || brandId.equals(BRAND_ADVANCED_SLIME_PAPER_ID) || brandId.equals(BRAND_STATIC_PAPER_ID);
+     }
+ 
+     @Override
+diff --git a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
+index 0c54eb1187c31a2e6efd4b0898fc600fa1bddeee..b16da45e93dddda9ff1bd989aff24c6996868627 100644
+--- a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
++++ b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
+@@ -11,7 +11,7 @@ public final class Versioning {
+     public static String getBukkitVersion() {
+         String result = "Unknown-Version";
+ 
+-        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/com.infernalsuite.asp/aspaper-api/pom.properties");
++        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/net.staticstudios.staticpaper/staticpaper-api/pom.properties");
+         Properties properties = new Properties();
+ 
+         if (stream != null) {

@@ -1,0 +1,40 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: leguan <longboard.noah@gmail.com>
+Date: Sat, 30 Aug 2025 12:25:33 +0200
+Subject: [PATCH] branding
+
+
+diff --git a/src/main/java/io/papermc/paper/ServerBuildInfo.java b/src/main/java/io/papermc/paper/ServerBuildInfo.java
+index d26bbab5b67b6456a2713e67c2bcfa17e7478992..e8294db62252f8c4af59fa6af203a3776ce8e037 100644
+--- a/src/main/java/io/papermc/paper/ServerBuildInfo.java
++++ b/src/main/java/io/papermc/paper/ServerBuildInfo.java
+@@ -1,13 +1,14 @@
+ package io.papermc.paper;
+ 
+-import java.time.Instant;
+-import java.util.Optional;
+-import java.util.OptionalInt;
+ import net.kyori.adventure.key.Key;
+ import net.kyori.adventure.util.Services;
+ import org.jetbrains.annotations.ApiStatus;
+ import org.jspecify.annotations.NullMarked;
+ 
++import java.time.Instant;
++import java.util.Optional;
++import java.util.OptionalInt;
++
+ /**
+  * Information about the current server build.
+  */
+@@ -25,6 +26,11 @@ public interface ServerBuildInfo {
+      */
+     Key BRAND_ADVANCED_SLIME_PAPER_ID = Key.key("infernalsuite", "advancedslimepaper");
+ 
++    /**
++     * The brand id for AdvancedSlimePaper.
++     */
++    Key BRAND_STATIC_PAPER_ID = Key.key("staticstudios", "staticpaper");
++
+     /**
+      * Gets the {@code ServerBuildInfo}.
+      *
