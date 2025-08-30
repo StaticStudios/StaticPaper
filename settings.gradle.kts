@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.maven
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -14,5 +16,5 @@ rootProject.name = "StaticPaper"
 
 include("staticpaper-api")
 include("staticpaper-server")
-include("staticpaper-asp-core")
-include("staticpaper-asp-api")
+//include("staticpaper-asp-core")
+//include("staticpaper-asp-api")

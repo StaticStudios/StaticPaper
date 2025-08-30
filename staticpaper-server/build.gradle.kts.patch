@@ -75,14 +75,26 @@
  abstract class MockitoAgentProvider : CommandLineArgumentProvider {
      @get:CompileClasspath
      abstract val fileCollection: ConfigurableFileCollection
-@@ -152,8 +_,8 @@
+@@ -151,9 +_,20 @@
+     }
  }
  
++repositories {
++    maven {
++        name = "infernalsuite snapshots"
++        url = uri("https://repo.infernalsuite.com/repository/maven-snapshots/")
++    }
++    maven {
++        name = "infernalsuite release"
++        url = uri("https://repo.infernalsuite.com/repository/maven-public/")
++    }
++}
++
  dependencies {
 -    implementation(project(":aspaper-api")) //ASP
 -    implementation(project(":core")) //ASP
 +    implementation(project(":staticpaper-api")) //ASP
-+    implementation(project(":staticpaper-asp-core")) //ASP
++    implementation("com.infernalsuite.asp:core:4.2.0-SNAPSHOT-3ec7916222cf4110e0aa128b0a7d4ee44f72ed69") //ASP
      implementation("ca.spottedleaf:concurrentutil:0.0.3")
      implementation("org.jline:jline-terminal-ffm:3.27.1") // use ffm on java 22+
      implementation("org.jline:jline-terminal-jni:3.27.1") // fall back to jni on java 21

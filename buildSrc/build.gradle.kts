@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.maven
+
 plugins {
     `kotlin-dsl`
 }
@@ -26,3 +28,6 @@ dependencies {
     implementation(convertPlugin(libs.plugins.plugin.yml.paper))
     implementation(convertPlugin(libs.plugins.shadow))
 }
+
+
+

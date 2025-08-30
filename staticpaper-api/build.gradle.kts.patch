@@ -5,7 +5,20 @@
  
  dependencies {
 -    api(project(":api")) //ASP
-+    api(project(":staticpaper-asp-api")) //ASP
++    api("com.infernalsuite.asp:api:4.2.0-SNAPSHOT") //ASP
      // api dependencies are listed transitively to API consumers
      api("com.google.guava:guava:33.3.1-jre")
      api("com.google.code.gson:gson:2.11.0")
+@@ -256,5 +_,12 @@
+     }
+     tasks.check {
+         dependsOn(scanJarForOldGeneratedCode)
++    }
++}
++
++repositories {
++    maven {
++        name = "infernalsuite"
++        url = uri("https://repo.infernalsuite.com/repository/maven-snapshots/")
+     }
+ }

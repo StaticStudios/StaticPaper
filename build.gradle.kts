@@ -21,16 +21,16 @@ paperweight {
             patchFile = file("staticpaper-api/build.gradle.kts.patch")
         }
 
-        patchDir("staticpaper-asp-core") {
-            upstreamPath = "core"
-            patchesDir = file("staticpaper-asp-core-patches")
-            outputDir = file("staticpaper-asp-core")
-        }
-        patchDir("staticpaper-asp-api") {
-            upstreamPath = "api"
-            patchesDir = file("staticpaper-asp-api-patches")
-            outputDir = file("staticpaper-asp-api")
-        }
+//        patchDir("staticpaper-asp-core") {
+//            upstreamPath = "core"
+//            patchesDir = file("staticpaper-asp-core-patches")
+//            outputDir = file("staticpaper-asp-core")
+//        }
+//        patchDir("staticpaper-asp-api") {
+//            upstreamPath = "api"
+//            patchesDir = file("staticpaper-asp-api-patches")
+//            outputDir = file("staticpaper-asp-api")
+//        }
 //        patchDir("aspaperApi") {
 //            upstreamPath = "aspaper-api"
 //            excludes = listOf("build.gradle.kts", "build.gradle.kts.patch", "paper-patches")
